@@ -5,10 +5,12 @@ using namespace std;
 #include <string>
 #include <thread>
 
+//hashmap of string and integer
 map<string, int> pairing{{"A",1},{"B",2},{"C",3}};
 
 shared_timed_mutex pair_mutex;
 
+//add to the hashmap
 void add_to_map(const string& na, int t)
 {
     lock_guard<shared_timed_mutex> writerLock(pair_mutex);
@@ -27,6 +29,7 @@ void printkey(const string& na)
     //return NULL;
 }
 
+//main program
 int main()
 {
     thread reader1([]{printkey("A");});

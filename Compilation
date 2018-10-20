@@ -1,2 +1,0 @@
-1. g++ -pthread FILENAME
-2. ./a.out
